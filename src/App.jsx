@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import LoginPage from './features/auth/pages/LoginPage';
+import HrDashboardLayout from './features/hr/layout/HrDashboardLayout';
+import HrDashboard from './features/hr/pages/HrDashboard';
+import CompanyProfile from './features/hr/pages/CompanyProfile';
+import JobListing from './features/hr/pages/JobListing';
+import CreateJob from './features/hr/pages/CreateJob';
+import CandidateDiscovery from './features/hr/pages/CandidateDiscovery';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/hr" replace />} />
+        <Route path="/auth/login" element={<LoginPage />} />
+        
+        {/* Protected Routes Scope */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/hr" element={<HrDashboardLayout />}>
+            <Route index element={<HrDashboard />} />
+            <Route path="jobs" element={<JobListing />} />
+            <Route path="jobs/create" element={<CreateJob />} />
+            <Route path="jobs/:jobId/candidates" element={<CandidateDiscovery />} />
+            <Route path="company" element={<CompanyProfile />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
