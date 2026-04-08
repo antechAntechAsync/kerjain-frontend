@@ -3,7 +3,8 @@ import { Card, CardHeader, CardTitle, CardContent } from '../../../components/ui
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
 import { Textarea } from '../../../components/ui/Textarea';
-import { Upload, Building2 } from 'lucide-react';
+import { Upload, Building2, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CompanyProfile() {
   const [logoPreview, setLogoPreview] = useState(null);
@@ -24,6 +25,12 @@ export default function CompanyProfile() {
     <div className="max-w-3xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">Company Profile</h2>
+        <Link to="/company/public">
+          <Button variant="outline" className="flex items-center gap-2">
+            <ExternalLink className="w-4 h-4" />
+            View Public Profile
+          </Button>
+        </Link>
       </div>
 
       <Card>

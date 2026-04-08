@@ -27,7 +27,7 @@ export default function LoginPage() {
           <h1 className="text-3xl font-heading font-bold text-primary text-center">KerjaIn HR Portal</h1>
           <p className="text-slate-500 font-body mt-2">Sign in to manage your candidate pipeline.</p>
         </div>
-        
+
         <Card className="shadow-lg border-slate-200">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-heading text-center">Welcome back</CardTitle>
@@ -38,11 +38,11 @@ export default function LoginPage() {
                 <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="email">
                   Email
                 </label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  placeholder="hr@company.com" 
-                  required 
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="hr@company.com"
+                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -53,9 +53,9 @@ export default function LoginPage() {
                     Password
                   </label>
                 </div>
-                <Input 
-                  id="password" 
-                  type="password" 
+                <Input
+                  id="password"
+                  type="password"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -67,7 +67,7 @@ export default function LoginPage() {
             </form>
           </CardContent>
         </Card>
-        
+
         <p className="text-center text-sm text-slate-500 mt-6 font-body">
           &copy; {new Date().getFullYear()} SkillMatch KerjaIn. All rights reserved.
         </p>

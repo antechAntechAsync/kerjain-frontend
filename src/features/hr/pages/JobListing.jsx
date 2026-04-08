@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../../../components/ui/Card';
 import { Button } from '../../../components/ui/Button';
@@ -11,6 +11,25 @@ const mockJobs = [
 ];
 
 export default function JobListing() {
+  const [jobs, setJobs] = useState(mockJobs);
+
+  const getPostedTime = (job) => {
+    if (job.createdAt) {
+      const diffMs = Date.now() - new Date(job.createdAt).getTime();
+      const diffMins = Math.floor(diffMs / 60000);
+      if (diffMins < 60) return diffMins === 0 ? 'Just now' : `${diffMins} mins ago`;
+      const diffHours = Math.floor(diffMins / 60);
+      if (diffHours < 24) return `${diffHours} hours ago`;
+      return `${Math.floor(diffHours / 24)} days ago`;
+    }
+    return job.posted;
+  };
+
+  useEffect(() => {
+    const localJobs = JSON.parse(localStorage.getItem('mock_created_jobs') || '[]');
+    setJobs([...localJobs, ...mockJobs]);
+  }, []);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -21,7 +40,7 @@ export default function JobListing() {
       </div>
 
       <div className="grid gap-4">
-        {mockJobs.map(job => (
+        {jobs.map(job => (
           <Card key={job.id} className="hover:border-secondary transition-colors">
             <div className="p-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -38,11 +57,11 @@ export default function JobListing() {
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      {job.posted}
+                      {getPostedTime(job)}
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="text-right">
                     <div className="text-2xl font-bold text-primary">{job.applicants}</div>

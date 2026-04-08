@@ -7,6 +7,7 @@ import CompanyProfile from './features/hr/pages/CompanyProfile';
 import JobListing from './features/hr/pages/JobListing';
 import CreateJob from './features/hr/pages/CreateJob';
 import CandidateDiscovery from './features/hr/pages/CandidateDiscovery';
+import CompanyPublicProfile from './features/companies/pages/CompanyPublicProfile';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/hr" replace />} />
         <Route path="/auth/login" element={<LoginPage />} />
+        <Route path="/company/public" element={<CompanyPublicProfile />} />
         
         {/* Protected Routes Scope */}
         <Route element={<ProtectedRoute />}>

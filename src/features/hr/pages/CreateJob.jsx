@@ -27,8 +27,21 @@ export default function CreateJob() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a real app, this would post to the API
-    console.log("Job listing created with skills:", skills);
+    
+    const newJob = {
+      id: Math.random().toString(36).substr(2, 9),
+      title: e.target.title.value,
+      type: e.target.type.value,
+      location: e.target.location.value,
+      applicants: 0,
+      createdAt: new Date().toISOString(),
+      status: 'Active'
+    };
+
+    const existingJobs = JSON.parse(localStorage.getItem('mock_created_jobs') || '[]');
+    localStorage.setItem('mock_created_jobs', JSON.stringify([newJob, ...existingJobs]));
+
+    console.log("Job listing created:", newJob, "with skills:", skills);
     navigate('/hr/jobs');
   };
 
@@ -47,6 +60,22 @@ export default function CreateJob() {
             <div className="grid gap-2">
               <label htmlFor="title" className="text-sm font-medium leading-none">Job Title</label>
               <Input id="title" placeholder="e.g. Senior Frontend Developer" required />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid gap-2">
+                <label htmlFor="type" className="text-sm font-medium leading-none">Employment Type</label>
+                <Select id="type" required>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Internship">Internship</option>
+                </Select>
+              </div>
+              <div className="grid gap-2">
+                <label htmlFor="location" className="text-sm font-medium leading-none">Location</label>
+                <Input id="location" placeholder="e.g. Remote, Jakarta, ID" required />
+              </div>
             </div>
 
             <div className="grid gap-2">
