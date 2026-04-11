@@ -1,7 +1,8 @@
 import React from 'react';
 
 export function Button({ className = '', variant = 'primary', size = 'md', children, ...props }) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50 disabled:pointer-events-none';
+  const baseStyles =
+    'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50 disabled:pointer-events-none';
 
   const variants = {
     primary: 'bg-primary text-white hover:bg-primary/90',
@@ -17,10 +18,7 @@ export function Button({ className = '', variant = 'primary', size = 'md', child
   };
 
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
-    >
+    <button className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`} {...props}>
       {children}
     </button>
   );

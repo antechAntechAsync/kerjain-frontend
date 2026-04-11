@@ -17,15 +17,23 @@ Welcome to the HR Frontend Module for **KerjaIn (SkillMatch SMK)**! This reposit
 - **Lucide React** (Iconography)
 
 ## Installation & Setup
-To run this project locally, ensure you have Node.js installed, then execute the following steps:
+To run this project locally, ensure you have Node.js or Bun installed, then execute the following steps:
 
 1. Clone this repository and navigate to the project root directory.
 2. Install the necessary dependencies:
    ```bash
+   # Using Bun (recommended - faster)
+   bun install
+
+   # Or using npm
    npm install
    ```
 3. Start the Vite development server:
    ```bash
+   # Using Bun
+   bun run dev
+
+   # Or using npm
    npm run dev
    ```
 4. Open your browser and navigate to the local host address (`http://localhost:5173/`).

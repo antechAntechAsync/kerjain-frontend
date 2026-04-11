@@ -24,8 +24,12 @@ export default function LoginPage() {
           <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-4 shadow-lg">
             <Building2 className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-heading font-bold text-primary text-center">KerjaIn HR Portal</h1>
-          <p className="text-slate-500 font-body mt-2">Sign in to manage your candidate pipeline.</p>
+          <h1 className="text-3xl font-heading font-bold text-primary text-center">
+            KerjaIn HR Portal
+          </h1>
+          <p className="text-slate-500 font-body mt-2">
+            Sign in to manage your candidate pipeline.
+          </p>
         </div>
 
         <Card className="shadow-lg border-slate-200">
@@ -35,7 +39,10 @@ export default function LoginPage() {
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="email">
+                <label
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  htmlFor="email"
+                >
                   Email
                 </label>
                 <Input
@@ -49,7 +56,10 @@ export default function LoginPage() {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="password">
+                  <label
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    htmlFor="password"
+                  >
                     Password
                   </label>
                 </div>

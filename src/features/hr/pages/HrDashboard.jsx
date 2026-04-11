@@ -16,7 +16,9 @@ export default function HrDashboard() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">Dashboard Overview</h2>
+        <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">
+          Dashboard Overview
+        </h2>
       </div>
 
       {/* Quick Stats */}
@@ -31,7 +33,7 @@ export default function HrDashboard() {
             <p className="text-xs text-slate-500 mt-1">+2 from last month</p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-slate-500">Total Applicants</CardTitle>
@@ -42,7 +44,7 @@ export default function HrDashboard() {
             <p className="text-xs text-slate-500 mt-1">+140 from last month</p>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-slate-500">Pending Review</CardTitle>
@@ -65,12 +67,12 @@ export default function HrDashboard() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={mockChartData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                <XAxis 
-                  dataKey="name" 
-                  stroke="#888888" 
-                  fontSize={12} 
-                  tickLine={false} 
-                  axisLine={false} 
+                <XAxis
+                  dataKey="name"
+                  stroke="#888888"
+                  fontSize={12}
+                  tickLine={false}
+                  axisLine={false}
                 />
                 <YAxis
                   stroke="#888888"
@@ -79,9 +81,13 @@ export default function HrDashboard() {
                   axisLine={false}
                   tickFormatter={(value) => `${value}`}
                 />
-                <Tooltip 
+                <Tooltip
                   cursor={{ fill: 'transparent' }}
-                  contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                  contentStyle={{
+                    borderRadius: '8px',
+                    border: 'none',
+                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                  }}
                 />
                 <Bar dataKey="applicants" fill="#3c83f6" radius={[4, 4, 0, 0]} />
               </BarChart>

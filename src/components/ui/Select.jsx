@@ -11,4 +11,4 @@ export const Select = React.forwardRef(({ className = '', children, ...props }, 
     </select>
   );
 });
-Select.displayName = "Select";
+Select.displayName = 'Select';

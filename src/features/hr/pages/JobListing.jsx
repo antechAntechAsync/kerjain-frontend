@@ -5,9 +5,30 @@ import { Button } from '../../../components/ui/Button';
 import { Briefcase, MapPin, Clock } from 'lucide-react';
 
 const mockJobs = [
-  { id: 1, title: 'Frontend Developer', type: 'Full-time', location: 'Remote', applicants: 12, posted: '2 days ago' },
-  { id: 2, title: 'UX Designer', type: 'Contract', location: 'Jakarta, ID', applicants: 5, posted: '5 days ago' },
-  { id: 3, title: 'Backend Engineer', type: 'Full-time', location: 'Remote', applicants: 28, posted: '1 week ago' },
+  {
+    id: 1,
+    title: 'Frontend Developer',
+    type: 'Full-time',
+    location: 'Remote',
+    applicants: 12,
+    posted: '2 days ago',
+  },
+  {
+    id: 2,
+    title: 'UX Designer',
+    type: 'Contract',
+    location: 'Jakarta, ID',
+    applicants: 5,
+    posted: '5 days ago',
+  },
+  {
+    id: 3,
+    title: 'Backend Engineer',
+    type: 'Full-time',
+    location: 'Remote',
+    applicants: 28,
+    posted: '1 week ago',
+  },
 ];
 
 export default function JobListing() {
@@ -33,7 +54,9 @@ export default function JobListing() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">Job Listings</h2>
+        <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">
+          Job Listings
+        </h2>
         <Link to="/hr/jobs/create">
           <Button>Create New Job</Button>
         </Link>

@@ -29,18 +29,23 @@ export default function HrDashboardLayout() {
         <nav className="flex flex-col p-4 space-y-1 flex-1">
           {navLinks.map((link) => {
             const Icon = link.icon;
-            const isActive = location.pathname === link.path || (link.path !== '/hr' && location.pathname.startsWith(link.path));
+            const isActive =
+              location.pathname === link.path ||
+              (link.path !== '/hr' && location.pathname.startsWith(link.path));
             return (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors ${isActive ? 'bg-primary/5 text-primary' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
-                  }`}
+                className={`flex items-center px-4 py-3 text-sm font-medium rounded-md transition-colors ${
+                  isActive
+                    ? 'bg-primary/5 text-primary'
+                    : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                }`}
               >
                 <Icon className="w-5 h-5 mr-3" />
                 {link.name}
               </Link>
-            )
+            );
           })}
         </nav>
       </aside>
@@ -58,7 +63,9 @@ export default function HrDashboardLayout() {
               <div className="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-sm shadow-sm ring-2 ring-white">
                 HR
               </div>
-              <span className="text-sm font-medium font-body text-slate-700 hidden sm:block">Jane Doe</span>
+              <span className="text-sm font-medium font-body text-slate-700 hidden sm:block">
+                Jane Doe
+              </span>
               <ChevronDown className="w-4 h-4 text-slate-500" />
             </button>
 
@@ -66,15 +73,14 @@ export default function HrDashboardLayout() {
             {isDropdownOpen && (
               <>
                 {/* Backdrop */}
-                <div
-                  className="fixed inset-0 z-10"
-                  onClick={() => setIsDropdownOpen(false)}
-                ></div>
+                <div className="fixed inset-0 z-10" onClick={() => setIsDropdownOpen(false)}></div>
 
                 {/* Menu Panel */}
                 <div className="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg border border-slate-100 py-1 z-20 origin-top-right transition-all duration-200 transform opacity-100 scale-100">
                   <div className="px-4 py-3 border-b border-slate-50">
-                    <p className="text-sm font-medium font-body text-primary leading-none">Jane Doe</p>
+                    <p className="text-sm font-medium font-body text-primary leading-none">
+                      Jane Doe
+                    </p>
                     <p className="text-xs text-slate-500 font-body mt-1">HR Manager</p>
                   </div>
                   <div className="py-1">

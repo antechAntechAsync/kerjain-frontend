@@ -8,8 +8,12 @@ export default function CandidateCard({ candidate }) {
   const [alert, setAlert] = useState(null);
 
   const getScoreColor = (score) => {
-    if (score >= 80) return 'text-green-600 bg-green-50 border-green-200';
-    if (score >= 60) return 'text-secondary bg-blue-50 border-blue-200';
+    if (score >= 80) {
+      return 'text-green-600 bg-green-50 border-green-200';
+    }
+    if (score >= 60) {
+      return 'text-secondary bg-blue-50 border-blue-200';
+    }
     return 'text-slate-500 bg-slate-50 border-slate-200';
   };
 
@@ -43,7 +47,9 @@ export default function CandidateCard({ candidate }) {
             </div>
           </div>
           <div className="text-right flex-shrink-0 ml-2">
-            <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full border-4 font-bold text-lg ${scoreColorClass.split(' ')[0]} ${scoreColorClass.split(' ')[2]}`}>
+            <div
+              className={`inline-flex items-center justify-center w-14 h-14 rounded-full border-4 font-bold text-lg ${scoreColorClass.split(' ')[0]} ${scoreColorClass.split(' ')[2]}`}
+            >
               {candidate.matchScore}%
             </div>
             <div className="text-xs text-slate-500 mt-1 font-medium text-center">Match</div>
@@ -51,10 +57,15 @@ export default function CandidateCard({ candidate }) {
         </div>
 
         <div className="mb-6 flex-1">
-          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Top Skills</h4>
+          <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+            Top Skills
+          </h4>
           <div className="flex flex-wrap gap-2">
-            {candidate.skills.map(skill => (
-              <span key={skill} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+            {candidate.skills.map((skill) => (
+              <span
+                key={skill}
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800"
+              >
                 {skill}
               </span>
             ))}
