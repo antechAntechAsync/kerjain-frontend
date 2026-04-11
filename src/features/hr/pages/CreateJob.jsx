@@ -5,12 +5,15 @@ import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
 import { Textarea } from '../../../components/ui/Textarea';
 import { Select } from '../../../components/ui/Select';
-import { Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2, Loader2 } from 'lucide-react';
+import { hrApi } from '../../../services/api';
 
 export default function CreateJob() {
   const navigate = useNavigate();
   const nextIdRef = useRef(1);
   const [skills, setSkills] = useState([{ id: 1, name: '', level: '1' }]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const addSkillRow = () => {
     const newId = nextIdRef.current++;
@@ -27,35 +30,56 @@ export default function CreateJob() {
     setSkills(skills.map((skill) => (skill.id === id ? { ...skill, [field]: value } : skill)));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
     
     const newJob = {
-      id: Math.random().toString(36).substr(2, 9),
       title: e.target.title.value,
       type: e.target.type.value,
       location: e.target.location.value,
-      applicants: 0,
-      createdAt: new Date().toISOString(),
-      status: 'Active'
+      description: e.target.description.value,
+      skills: skills.map(s => ({ name: s.name, level: parseInt(s.level) }))
     };
 
-    const existingJobs = JSON.parse(localStorage.getItem('mock_created_jobs') || '[]');
-    localStorage.setItem('mock_created_jobs', JSON.stringify([newJob, ...existingJobs]));
-
-    console.log("Job listing created:", newJob, "with skills:", skills);
-    navigate('/hr/jobs');
+    try {
+      if (import.meta.env.VITE_ENABLE_MOCK_AUTH === 'true') {
+        const fullJob = {
+          ...newJob,
+          id: Math.random().toString(36).substr(2, 9),
+          applicants: 0,
+          createdAt: new Date().toISOString(),
+          status: 'Active'
+        };
+        const existingJobs = JSON.parse(localStorage.getItem('mock_created_jobs') || '[]');
+        localStorage.setItem('mock_created_jobs', JSON.stringify([fullJob, ...existingJobs]));
+        navigate('/hr/jobs');
+      } else {
+        await hrApi.addJob(newJob);
+        navigate('/hr/jobs');
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to create job');
+      setLoading(false);
+    }
   };
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">
-          Create Job Posting
-        </h2>
-      </div>
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-heading font-bold tracking-tight text-primary">
+            Create Job Posting
+          </h2>
+        </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+        {error && (
+          <div className="p-4 bg-red-50 text-red-600 rounded-md font-medium text-sm">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
         <Card>
           <CardHeader>
             <CardTitle>Job Details</CardTitle>
@@ -154,10 +178,13 @@ export default function CreateJob() {
         </Card>
 
         <div className="flex justify-end gap-3">
-          <Button type="button" variant="ghost" onClick={() => navigate('/hr/jobs')}>
+          <Button type="button" variant="ghost" onClick={() => navigate('/hr/jobs')} disabled={loading}>
             Cancel
           </Button>
-          <Button type="submit">Post Job</Button>
+          <Button type="submit" disabled={loading}>
+            {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : null}
+            Post Job
+          </Button>
         </div>
       </form>
     </div>

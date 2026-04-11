@@ -2,13 +2,14 @@ import React from 'react';
 
 export function Button({ className = '', variant = 'primary', size = 'md', children, ...props }) {
   const baseStyles =
-    'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-50 disabled:pointer-events-none';
+    'inline-flex items-center justify-center rounded-full font-heading font-semibold transition-all duration-300 active:scale-95 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary disabled:opacity-50 disabled:pointer-events-none';
 
   const variants = {
-    primary: 'bg-primary text-white hover:bg-primary/90',
-    secondary: 'bg-secondary text-white hover:bg-secondary/90',
-    outline: 'border border-primary text-primary hover:bg-primary hover:text-white',
-    ghost: 'hover:bg-slate-100 text-slate-700',
+    primary: 'bg-primary text-white hover:shadow-lg',
+    secondary: 'bg-secondary text-white hover:shadow-lg',
+    outline: 'border border-outline-variant text-primary hover:bg-surface-container-low',
+    ghost: 'hover:bg-surface-container-low text-customText',
+    glass: 'bg-surface-variant backdrop-blur-[20px] text-primary border border-outline-variant',
   };
 
   const sizes = {
