@@ -29,7 +29,7 @@ export default function CandidateCard({ candidate }) {
             {alert}
           </div>
         )}
-        
+
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="font-heading font-semibold text-lg text-primary">{candidate.name}</h3>
@@ -66,31 +66,31 @@ export default function CandidateCard({ candidate }) {
             Status: <span className="font-medium text-primary">{status}</span>
           </div>
           <div className="flex flex-wrap gap-2">
-            <Button 
-              size="sm" 
-              variant="outline" 
+            <Button
+              size="sm"
+              variant="outline"
               className="flex-1 text-xs px-2"
               onClick={() => handleAction('Marked as Reviewed', 'Reviewed')}
               disabled={status === 'Reviewed' || status === 'Hired' || status === 'Rejected'}
             >
               <Clock className="w-3 h-3 mr-1" /> Review
             </Button>
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               className="flex-1 text-xs px-2 bg-green-600 hover:bg-green-700 text-white"
               onClick={() => handleAction('Accepted/Hired', 'Hired')}
               disabled={status === 'Hired' || status === 'Rejected'}
             >
-               <CheckCircle className="w-3 h-3 mr-1" /> Hire
+              <CheckCircle className="w-3 h-3 mr-1" /> Hire
             </Button>
-            <Button 
-              size="sm" 
-              variant="ghost" 
+            <Button
+              size="sm"
+              variant="ghost"
               className="flex-1 text-xs px-2 text-red-600 hover:text-red-700 hover:bg-red-50"
               onClick={() => handleAction('Rejected', 'Rejected')}
               disabled={status === 'Rejected' || status === 'Hired'}
             >
-               <XCircle className="w-3 h-3 mr-1" /> Reject
+              <XCircle className="w-3 h-3 mr-1" /> Reject
             </Button>
           </div>
         </div>

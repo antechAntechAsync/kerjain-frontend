@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>User Profile | KerjaIn Vocational Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#002d34",
+                        "primary-fixed-dim": "#bcc7de",
+                        "surface": "#f7f9fb",
+                        "on-primary-container": "#848fa5",
+                        "on-tertiary-container": "#009db3",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777d",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#d8e3fb",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#2ed9f4",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#0058bd",
+                        "on-secondary-fixed-variant": "#004494",
+                        "inverse-primary": "#bcc7de",
+                        "on-surface-variant": "#45474c",
+                        "on-primary-fixed": "#111c1e",
+                        "tertiary": "#00171b",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#2071e3",
+                        "on-tertiary-fixed": "#001f25",
+                        "on-secondary-fixed": "#001a41",
+                        "on-background": "#191c1e",
+                        "surface-container": "#eceef0",
+                        "surface-tint": "#545f73",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed-variant": "#3c475b",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#a2eeff",
+                        "primary-container": "#1d283a",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#c5c6cd",
+                        "primary": "#081324",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-container": "#fefcff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .tonal-layering {
+            background-image: radial-gradient(at top left, rgba(255, 255, 255, 0.8), transparent);
+        }
+
+        .no-border {
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-background min-h-screen">
+    <!-- Shared SideNavBar -->
+    <aside
+        class="fixed left-0 top-0 w-72 flex flex-col p-6 z-40 bg-slate-900/60 dark:bg-slate-950/60 backdrop-blur-xl rounded-r-[2.5rem] h-[calc(100vh-2rem)] my-4 ml-4 shadow-2xl shadow-slate-950/20 no-border">
+        <div class="mb-10 px-2">
+            <h1 class="text-2xl font-extrabold text-slate-100 font-['Plus_Jakarta_Sans'] tracking-tight">KerjaIn</h1>
+            <p class="text-slate-400 text-xs font-semibold uppercase tracking-widest mt-1">Vocational Hub</p>
+        </div>
+        <nav class="flex-1 space-y-2">
+            <a class="flex items-center gap-4 text-slate-400 hover:text-slate-100 transition-colors hover:bg-slate-800/50 hover:scale-[1.02] transition-all duration-300 px-4 py-3 rounded-2xl"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-semibold">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-4 text-slate-400 hover:text-slate-100 transition-colors hover:bg-slate-800/50 hover:scale-[1.02] transition-all duration-300 px-4 py-3 rounded-2xl"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="work">work</span>
+                <span class="font-semibold">Marketplace</span>
+            </a>
+            <a class="flex items-center gap-4 text-slate-400 hover:text-slate-100 transition-colors hover:bg-slate-800/50 hover:scale-[1.02] transition-all duration-300 px-4 py-3 rounded-2xl"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                <span class="font-semibold">Assessments</span>
+            </a>
+            <a class="flex items-center gap-4 text-slate-400 hover:text-slate-100 transition-colors hover:bg-slate-800/50 hover:scale-[1.02] transition-all duration-300 px-4 py-3 rounded-2xl"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+                <span class="font-semibold">Interviews</span>
+            </a>
+            <!-- Active State for Settings/Profile -->
+            <a class="flex items-center gap-4 bg-blue-600 text-white rounded-full px-4 py-3 shadow-lg shadow-blue-500/30 scale-105"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span class="font-semibold">Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto pt-6">
+            <button
+                class="w-full bg-blue-600 text-white rounded-full py-4 font-bold shadow-lg shadow-blue-500/30 hover:scale-[1.02] transition-transform active:scale-95 duration-200">
+                AI Assessment
+            </button>
+            <div class="mt-6 flex items-center gap-3 px-2">
+                <div class="w-10 h-10 rounded-full bg-slate-700 overflow-hidden ring-2 ring-blue-500/50">
+                    <img class="w-full h-full object-cover"
+                        data-alt="Portrait of a young vocational student with a friendly smile, clean lighting, professional headshot style"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyWX9uTmdrKv_k-V-IT6T9gW9sqqFFlECTjgGddF7r4iOTEge-AEbhXNY6PUHTrbpuDeSart5RlayMhdsOeKBDMZ7yFtE0I7SGZd1I57Ygvv8zgUrEZYt23gg4OJ8WU3huyQ5lRyMkLHyeA1cBmR_SHEDkV-OUbJwNLlAAedELKQQeTEr0UbbjPX2jqjkxQfcxDtr9w3mbxTQBBEAcSVoJm5gtyooy0G-D994tWhkmhVtFvniLvo5AXbrRuJKyZZ4cqzyog9UUcPR7" />
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-slate-100">Alex Rivera</p>
+                    <p class="text-xs text-slate-500">Premium Student</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="ml-80 mr-8 pt-8 pb-20">
+        <!-- Header Section -->
+        <header class="relative mb-12">
+            <div class="h-64 rounded-xl overflow-hidden relative shadow-lg">
+                <img class="w-full h-full object-cover"
+                    data-alt="Abstract fluid geometry background with soft blues and greys, premium editorial texture"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGelKMfdYGqpJfbBNNDNadqImPCLVyGw7B_yLbVuXp_tNHUp5Uks0cra4hUQl7hRhw4W2g2cY0eFd2OkjjlcGEDy3vL3b-PX2B5vvmGmXcy0e5lXUhrQJLDKeZVXWGywQ_knoXfbbdyiQoxUvStPceaNkVJ6pO4RL6v6e20czObvF0XPmfALGxluxEY0bLoE-Yfb8rT6GOgX_hufYRSmHf7JLhPDt9bPK8CvOfLv-oYcOEK5stGljGLqxbpaLgYu0W7zRbmSdDidC-" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div class="flex items-end gap-8 px-10 -mt-16 relative z-10">
+                <div class="w-40 h-40 rounded-xl bg-white/20 backdrop-blur-2xl p-2 shadow-2xl">
+                    <div class="w-full h-full rounded-lg overflow-hidden border-4 border-white/30">
+                        <img class="w-full h-full object-cover"
+                            data-alt="Portrait of a young male vocational student, soft natural lighting, high-end editorial feel"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8J_wQ78mmY_lsBEreMpumUTOQ98DWGABd_3Ru--Y5oiKhVLPsnyo8qSS_fPU-JhdT-YtMqwd2I5OJxtuvdiVTlQ0lfLRgUNS5sD61OQpXrTOqYWxxAvwTk-S3SqpzT4jOFmN9_zEXOkqqK0xyhlJobOdE856okZJYWCEDypaomp0w6uJeEHB2vFRRXxH0PuUXj2o3ALMfAgjZeAR4GT_mxRcjnrZ31oKGzHQQeNGo0Gc0WgTWpXgitMp1qFHpCrTrb49p-PJ3LDhn" />
+                    </div>
+                </div>
+                <div class="pb-4 flex-1">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-4xl font-extrabold text-white tracking-tight drop-shadow-md">Alex Rivera</h2>
+                        <div
+                            class="flex items-center gap-4 bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-full shadow-sm">
+                            <span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Public
+                                Profile</span>
+                            <div class="w-10 h-5 bg-secondary rounded-full relative cursor-pointer">
+                                <div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-lg text-white/90 font-medium">Aspiring Industrial Automation Specialist • Tech
+                        Vocational Institute</p>
+                </div>
+            </div>
+        </header>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-12 gap-6 px-4">
+            <!-- Bio & Skills (Left Column) -->
+            <div class="col-span-12 lg:col-span-7 space-y-6">
+                <!-- Bio Card -->
+                <section class="bg-surface-container-low p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold tracking-tight">About Me</h3>
+                        <button class="flex items-center gap-2 text-secondary font-bold text-sm">
+                            <span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+                            Edit Bio
+                        </button>
+                    </div>
+                    <p class="text-on-surface-variant leading-relaxed text-lg">
+                        Passionate about merging traditional craftsmanship with modern robotics. Currently focused on
+                        PLC programming and sustainable manufacturing processes. Looking for opportunities to apply
+                        digital twin technology in industrial maintenance.
+                    </p>
+                </section>
+                <!-- Skills & Match Scores -->
+                <section class="bg-surface-container-lowest p-8 rounded-lg shadow-xl shadow-slate-200/40">
+                    <h3 class="text-xl font-bold tracking-tight mb-8">Technical Proficiency</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <!-- Skill Tag -->
+                        <div
+                            class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-full group cursor-default">
+                            <span class="font-bold text-sm">PLC Logic</span>
+                            <div
+                                class="flex items-center gap-1 bg-secondary/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-black uppercase">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="verified"
+                                    style="font-variation-settings: 'FILL' 1;">verified</span>
+                                98% Match
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-full cursor-default">
+                            <span class="font-bold text-sm">AutoCAD</span>
+                            <div
+                                class="flex items-center gap-1 bg-secondary/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-black uppercase">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="verified"
+                                    style="font-variation-settings: 'FILL' 1;">verified</span>
+                                92% Match
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-full cursor-default">
+                            <span class="font-bold text-sm">Robotic Arms</span>
+                            <div
+                                class="flex items-center gap-1 bg-tertiary-fixed-dim/20 text-on-tertiary-container px-2 py-0.5 rounded-full text-[10px] font-black uppercase">
+                                85% Score
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-full cursor-default">
+                            <span class="font-bold text-sm">Python</span>
+                            <div
+                                class="flex items-center gap-1 bg-tertiary-fixed-dim/20 text-on-tertiary-container px-2 py-0.5 rounded-full text-[10px] font-black uppercase">
+                                78% Score
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-surface-container-low px-4 py-3 rounded-full cursor-default">
+                            <span class="font-bold text-sm">IoT Systems</span>
+                            <div
+                                class="flex items-center gap-1 bg-secondary/10 text-secondary px-2 py-0.5 rounded-full text-[10px] font-black uppercase">
+                                <span class="material-symbols-outlined text-[12px]" data-icon="verified"
+                                    style="font-variation-settings: 'FILL' 1;">verified</span>
+                                95% Match
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Roadmap & Progress (Right Column) -->
+            <div class="col-span-12 lg:col-span-5 space-y-6">
+                <section class="bg-primary-container text-white p-8 rounded-lg shadow-2xl">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <h3 class="text-xl font-bold">Learning Path</h3>
+                            <p class="text-on-primary-container text-sm font-medium">Smart Manufacturing Specialist</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-3xl font-black text-secondary-fixed">64%</span>
+                        </div>
+                    </div>
+                    <!-- Progress Tracker -->
+                    <div class="space-y-6">
+                        <div class="relative pl-8 border-l-2 border-white/10 space-y-8">
+                            <!-- Step Completed -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-secondary ring-4 ring-primary-container">
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-bold text-sm">Foundation of Industry 4.0</h4>
+                                        <p class="text-xs text-on-primary-container">Completed • Jan 12</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-secondary text-lg"
+                                        data-icon="check_circle"
+                                        style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                </div>
+                            </div>
+                            <!-- Step Active -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-white ring-4 ring-primary-container">
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-bold text-sm text-white">Advanced PLC Control Systems</h4>
+                                        <p class="text-xs text-secondary-fixed font-bold">In Progress</p>
+                                    </div>
+                                </div>
+                                <div class="mt-3 w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="w-3/4 h-full bg-secondary"></div>
+                                </div>
+                            </div>
+                            <!-- Step Locked -->
+                            <div class="relative opacity-40">
+                                <div
+                                    class="absolute -left-[41px] top-0 w-4 h-4 rounded-full bg-white/30 ring-4 ring-primary-container">
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-bold text-sm">Digital Twin Implementation</h4>
+                                        <p class="text-xs text-on-primary-container">Unlocked at level 12</p>
+                                    </div>
+                                    <span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- AI Coach Card -->
+                <section class="bg-surface-container-low p-6 rounded-lg flex items-center gap-5">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center text-secondary">
+                        <span class="material-symbols-outlined text-3xl" data-icon="smart_toy"
+                            style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg">AI Career Coach</h4>
+                        <p class="text-sm text-on-surface-variant">"You're only 2 certifications away from top-tier
+                            roles."</p>
+                        <button class="mt-2 text-secondary font-bold text-sm uppercase tracking-wider">Review
+                            Insights</button>
+                    </div>
+                </section>
+            </div>
+            <!-- Portfolio Showcase (Full Width) -->
+            <section class="col-span-12 mt-4">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold tracking-tight">Project Portfolio</h3>
+                    <div class="flex gap-2">
+                        <button
+                            class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-outline">
+                            <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface">
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Mechanical arm in a modern laboratory, sharp focus, vibrant industrial colors"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC473JPw8TPzP4zzxG-Dh_QWHadL0kj_hPKspP6wbtKYubGEsPwVE_0GdoE4USkZ22i1VZzyA0Gara88Py6NNVj0QDMGg9JgcEh0udaiivjcTFFFOgXX9bfFKbMuvHfjCICYdcpN9F4r9gfDQ_LmDKbK-5pumqmHtjh0960uV11gND_7qq6o9XuxYfD_W3iHBkLvoGBFfxchmj977GhaiZG9Z3Dk9MjtlD_6DBGI56KW1Q4jX88ZWQAgBzFM0CnIkdsd15I7QMMrgvY" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase text-secondary">
+                                Embedded Systems</div>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-secondary transition-colors">Smart Sorting
+                            Arm v2</h4>
+                        <p class="text-sm text-on-surface-variant">A PLC-driven mechanical arm with computer vision for
+                            material segregation.</p>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video rounded-xl overflow-hidden mb-4 relative">
+                            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Close up of a server rack with blue glowing lights, high tech vocational equipment"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC29nqXs9K8m1ECiAh1t1e-baOfTaZNtclMj3XoGfaFm7fZWS8_mK_2GXJj0YAgRPnj6DVZl2Eq86iF8oDv8-tnuw63amWt4cfSTBSL5FfW-1gUfFkADUqfo6v-4TNeZUD_2gE_3QsgjK43kOxxoyDF6RA7rUEq3oxJhmfpFukZpfVKoshgqh9iSAXkpwrQi9xeKhRf7364CdKF9m2LpqhSEtP3FsYhjPNox0S0kJe6i3k-l8UgvP3bOMboyXv09ocLu0Z7urEs6p37" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-black uppercase text-secondary">
+                                IoT</div>
+                        </div>
+                        <h4 class="font-bold text-lg mb-1 group-hover:text-secondary transition-colors">Warehouse
+                            Monitoring Hub</h4>
+                        <p class="text-sm text-on-surface-variant">Real-time environmental tracking system using ESP32
+                            and custom dashboard.</p>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="group cursor-pointer">
+                        <div
+                            class="aspect-video rounded-xl overflow-hidden mb-4 relative bg-surface-container flex items-center justify-center border-2 border-dashed border-outline-variant">
+                            <div class="text-center">
+                                <span class="material-symbols-outlined text-4xl text-outline-variant mb-2"
+                                    data-icon="add_circle">add_circle</span>
+                                <p class="text-sm font-bold text-outline-variant">Add New Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Shared BottomNavBar for Mobile -->
+    <nav
+        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end pb-6 px-4 md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl rounded-t-[2rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)]">
+        <div class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-400">
+            <span class="material-symbols-outlined" data-icon="home_max">home_max</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold">Home</span>
+        </div>
+        <div class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-400">
+            <span class="material-symbols-outlined" data-icon="search_insights">search_insights</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold">Explore</span>
+        </div>
+        <div class="flex flex-col items-center justify-center text-slate-400 p-2 hover:text-blue-400">
+            <span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold">AI Coach</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center bg-blue-500 text-white rounded-2xl p-3 transform -translate-y-2 shadow-lg shadow-blue-500/40">
+            <span class="material-symbols-outlined" data-icon="person_search"
+                style="font-variation-settings: 'FILL' 1;">person_search</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold">Profile</span>
+        </div>
+    </nav>
+</body>
+
+</html>
