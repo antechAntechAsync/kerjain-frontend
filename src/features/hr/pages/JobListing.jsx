@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { Briefcase, Clock, MapPin } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from '../../../components/ui/Card';
 import { Button } from '../../../components/ui/Button';
-import { Briefcase, MapPin, Clock } from 'lucide-react';
+import { Card } from '../../../components/ui/Card';
 
 const mockJobs = [
   {

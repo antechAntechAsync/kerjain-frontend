@@ -16,7 +16,7 @@ import {
   Search,
   Award
 } from 'lucide-react';
-import logo from '../assets/kerjain_logo_final.png';
+import logo from '../assets/KerjaIn.png';
 
 export default function LandingPage() {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Briefcase, Building2, LogOut, ChevronDown, User } from 'lucide-react';
-import kerjainLogo from '../../../assets/kerjain_logo_final.png';
+import kerjainLogo from '../../../assets/KerjaIn.png';
 
 export default function HrDashboardLayout() {
   const location = useLocation();

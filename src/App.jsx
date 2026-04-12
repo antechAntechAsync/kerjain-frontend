@@ -1,20 +1,20 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import LandingPage from './pages/LandingPage';
-import RegisterPage from './features/auth/pages/RegisterPage';
 import LoginPage from './features/auth/pages/LoginPage';
-import HrDashboardLayout from './features/hr/layout/HrDashboardLayout';
-import HrDashboard from './features/hr/pages/HrDashboard';
-import CompanyProfile from './features/hr/pages/CompanyProfile';
-import JobListing from './features/hr/pages/JobListing';
-import CreateJob from './features/hr/pages/CreateJob';
-import CandidateDiscovery from './features/hr/pages/CandidateDiscovery';
+import RegisterPage from './features/auth/pages/RegisterPage';
 import CompanyPublicProfile from './features/companies/pages/CompanyPublicProfile';
+import HrDashboardLayout from './features/hr/layout/HrDashboardLayout';
+import CandidateDiscovery from './features/hr/pages/CandidateDiscovery';
+import CompanyProfile from './features/hr/pages/CompanyProfile';
+import CreateJob from './features/hr/pages/CreateJob';
+import HrDashboard from './features/hr/pages/HrDashboard';
+import JobListing from './features/hr/pages/JobListing';
 import InterestAssessment from './features/student/pages/InterestAssessment';
 import KnowledgeCheck from './features/student/pages/KnowledgeCheck';
-import SelfAssessment from './features/student/pages/SelfAssessment';
 import Portfolio from './features/student/pages/Portfolio';
-import './App.css';
+import SelfAssessment from './features/student/pages/SelfAssessment';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/register" element={<RegisterPage />} />
         <Route path="/company/public" element={<CompanyPublicProfile />} />
-        
+
         {/* Protected Routes Scope */}
         <Route element={<ProtectedRoute />}>
           <Route path="/hr" element={<HrDashboardLayout />}>

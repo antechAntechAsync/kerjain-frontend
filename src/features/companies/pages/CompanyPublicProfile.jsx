@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card } from '../../../components/ui/Card';
 import { Button } from '../../../components/ui/Button';
 import { MapPin, Briefcase, Clock, Building, Globe, Users } from 'lucide-react';
-import kerjainLogo from '../../../assets/kerjain_logo_final.png';
+import kerjainLogo from '../../../assets/KerjaIn.png';
 
 const mockCompanyJobs = [
   { id: 1, title: 'Frontend Developer', type: 'Full-time', location: 'Remote', posted: '2 days ago' },

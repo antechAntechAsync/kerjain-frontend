@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react';
+import { Loader2, Plus, Trash2 } from 'lucide-react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Card, CardHeader, CardTitle, CardContent } from '../../../components/ui/Card';
 import { Button } from '../../../components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '../../../components/ui/Card';
 import { Input } from '../../../components/ui/Input';
-import { Textarea } from '../../../components/ui/Textarea';
 import { Select } from '../../../components/ui/Select';
-import { Plus, Trash2, Loader2 } from 'lucide-react';
+import { Textarea } from '../../../components/ui/Textarea';
 import { hrApi } from '../../../services/api';
 
 export default function CreateJob() {
@@ -34,7 +34,7 @@ export default function CreateJob() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-    
+
     const newJob = {
       title: e.target.title.value,
       type: e.target.type.value,
