@@ -60,3 +60,12 @@ coverage
 .dynamodb
 .tern-port
 *.pem
+
+# AI Context & Planning Files
+implementation_plan*
+qwen*
+QWEN.md
+agents.md
+design.md
+development*
+gemini*

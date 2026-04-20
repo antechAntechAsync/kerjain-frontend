@@ -1,0 +1,36 @@
+name: kerjaIn-Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      # Install Bun
+      - name: 🥟 Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      # Install dependencies
+      - name: 📦 Install deps
+        run: bun install
+
+      # Build project
+      - name: 🏗 Build
+        run: bun run build
+
+      # Deploy pakai rsync (BEST)
+      - name: 🚀 Deploy via rsync
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+          rsync -avz --delete dist/ \
+            deploy@${{ secrets.HOST }}:/www/wwwroot/kerjain.tech
