@@ -1,0 +1,228 @@
+/* ============================================================
+   Google Fonts — must come before @import "tailwindcss"
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
+
+/* ============================================================
+   KerjaIn Design System — "Editorial Futurity / Kinetic Atelier"
+   Tailwind CSS v4 — CSS-first configuration
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* ---- Dark Mode (class-based) ---- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   Design Tokens — @theme
+   ============================================================ */
+@theme {
+  /* ---- Typography ---- */
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---- Colors: Light Mode (Primary Surface) ---- */
+  --color-primary: #1d283a;
+  --color-primary-container: #1d283a;
+  --color-primary-fixed: #d8e3fb;
+  --color-primary-fixed-dim: #bcc7de;
+
+  --color-secondary: #3c83f6;
+  --color-secondary-hover: #2071e3;
+  --color-secondary-container: #2071e3;
+
+  --color-accent: #20d3ee;
+  --color-accent-dim: #009db3;
+
+  --color-surface: #f7f9fb;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-container: #eceef0;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+
+  --color-on-surface: #191c1e;
+  --color-on-surface-variant: #45474c;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #848fa5;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fefcff;
+
+  --color-outline: #75777d;
+  --color-outline-variant: rgba(197, 198, 205, 0.15);
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+
+  --color-success: #16a34a;
+  --color-success-container: #dcfce7;
+
+  --color-warning: #f59e0b;
+  --color-warning-container: #fef3c7;
+
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+  --color-inverse-primary: #bcc7de;
+
+  /* ---- Dark Mode Colors ---- */
+  --color-dark-surface: #0b1326;
+  --color-dark-surface-container: #111827;
+  --color-dark-surface-container-low: #0f172a;
+  --color-dark-surface-container-lowest: #060e20;
+  --color-dark-surface-container-high: #1e293b;
+  --color-dark-surface-container-highest: #2d3449;
+  --color-dark-on-surface: #e2e8f0;
+  --color-dark-on-surface-variant: #c2c6d6;
+  --color-dark-primary: #adc6ff;
+  --color-dark-secondary: #4c8eff;
+  --color-dark-accent: #5de6ff;
+  --color-dark-outline-variant: rgba(255, 255, 255, 0.06);
+
+  /* ---- Squircle Border Radii ---- */
+  --radius-sq-sm: 12px;
+  --radius-sq-md: 20px;
+  --radius-sq-lg: 24px;
+  --radius-sq-xl: 32px;
+
+  /* ---- Ambient Shadows ---- */
+  --shadow-ambient: 0 40px 60px -10px rgba(25, 28, 30, 0.05);
+  --shadow-card: 0 8px 30px -4px rgba(25, 28, 30, 0.08);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.04);
+
+  /* ---- Animations ---- */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Breakpoints ---- */
+  --breakpoint-xs: 475px;
+}
+
+
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body,
+  body.dark {
+    background-color: var(--color-dark-surface);
+    color: var(--color-dark-on-surface);
+  }
+
+  /* Remove default focus outlines, add custom */
+  *:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================================
+   Custom Utility Classes
+   ============================================================ */
+@layer utilities {
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.7);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+
+  .dark .glass-strong {
+    background: rgba(11, 19, 38, 0.85);
+  }
+
+  /* Vocational Spring Animation */
+  .spring {
+    transition: transform 0.2s var(--ease-spring);
+  }
+
+  .spring:hover {
+    transform: scale(1.02);
+  }
+
+  .spring:active {
+    transform: scale(0.96);
+  }
+
+  /* Input Glow */
+  .input-glow:focus {
+    box-shadow: 0 0 0 4px rgba(60, 131, 246, 0.15);
+  }
+
+  /* Ghost Border */
+  .ghost-border {
+    border: 1px solid var(--color-outline-variant);
+  }
+
+  .dark .ghost-border {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Material Symbols baseline fix */
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle;
+  }
+}
+
+/* ============================================================
+   Scrollbar Styling
+   ============================================================ */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-outline);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-on-surface-variant);
+  }
+}
